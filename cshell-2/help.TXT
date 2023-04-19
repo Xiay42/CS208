@@ -1,0 +1,22 @@
+
+Command Shell 208:
+
++ A list of commands that I (I'm shell208)can execute
+
+- help: print out a help text to help you use this command shell.
+
+- single command with arguments: ls lists all the sub directories under current directory. (you can add arguments for ls like ls -l, or ls -l -a)
+
+- redirecting (write): redirect output from standard output to somefile name you enter as parameter. ls > elk.txt (in redirecting you can also add arguments for your single command: ls -l -a > elk).
+
+- redirecting (read): redirect input from standard input to some file name. for example, wc -l < elk.txt
+
+- piping: direct the output of one process to another process. example, ls | wc -l
+
+- catch signal: handle ^C signal and "exit" user input. The program won't end with ^C, only with "exit"
+
++ things that I (shell208) can't do:
+
+- multiple pipes.
+
+- different operations at once.

@@ -1,0 +1,15 @@
+
+
+
+Command Shell 208:
+
+A list of commands that I (I'm shell208)can execute
+
+	help: print out a help text to help you use this command shell.
+
+	single command with arguments: ls lists all the sub directories under current directory. (you can add arguments for ls like ls -l, or ls -l -a)
+
+	redirecting: redirect output from standard output to somefile name you enter as parameter. ls > elk.txt (in redirecting you can also add arguments for your single command: ls -l -a > elk).
+
+
+

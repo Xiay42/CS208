@@ -1,0 +1,8 @@
+lea meaning?
+phase 2 where did eax change?
+how to defuse
+run 
+
+
+tr -d "\r" < defuse.txt > d
+get rid of newline chhar

@@ -1,0 +1,69 @@
+PHASE1:
+	- the program asks for user input, then iterate through the string provided 1 char at a time to see if the length of user's string is 90, 
+	- then it iterate though the string again 1 char at a time to check if the user's string is equal to 
+	- "What's the penalty for shooting a fricaseeing rabbit without a fricaseeing rabbit license?" if the the comparison is equal, the program will not jump to explode bomb func and go to successful defused bomb func.
+	- this phrase comes from "duck, rabbit duck!" so what season is it really?
+
+PHASE2:
+	- in phase 2's <read_six_function>, the program checks if the user-input is in the format of "%d %d %d %d %d %d", if not the bomb will explod.
+	- the program move to <phase2 line 48>, and set ebx to 1, then aet eax to ebx,
+	-then at <line54> we add the zero-th index of rsp to eax, which means adding 0 to eax, leaving eax to be 1
+	- in <line54> we compare eax and the first number of user input, if it's not equal the bomb explods
+	- if the bomb did not explod then we move back to <line38> and add 1 to rbx (now rbx is the second number of the unser input)
+	- then we'll check if rbx is greater than 6, if it's 6 that means we've reached the end of the unser input and the bomb did not explode we return
+	- if rbx is less than 6 we'll go through <line48> to <line57> again, first we set eax to ebx (set eax to 1), and then we add the first index of rsp to eax (add the first user input to 1 to get eax), 
+	- then we compare eax with the second number in the user input.
+	- to conclude, we start at 1 and increment eax by the index of the last user input each time we go through the loop.
+	- this pattern will give us 1 2 4 7 11 16
+
+PHASE3:
+	- when we look at address 0x401654 in <line14>, we find the following string stored in that address: "%d %d".
+	- then the program takes the user input and put the first user input number starting at 12 bits below the stack pointer address, and the second pointer at 8 bits bellow the stack pointer.
+	- in <line34> the program checks if the fisrt user input value is less then 7, if not the bomb explodes.
+	- in <line45> we'll jump to the address according to what our first user input values is. the destination address is 0x400b7b + first_value * 8
+	- then the program picks a value to give to eax, in my solution I choose 4 as my first value and the value for eax is 0x1f8 which is 504.
+	- in <line125> we compare the content in eax and our second value, if they are equal the bomb is defused, if not the bomb explodes
+
+PHASE4:
++ phase4
+	- String "%d %d" stored in address 0x401654, which means that we need to enter 2 numbers.
+	- the fisrt number we entered is stored starting at 12 bits below stack pointer and the second number is stored starting at 8 bits below stack pointer, and we set eax to 0
+	- in <phase_4+34>, we compare the first number the user enters to 14, if it's greater then 14 the bomb explodes
+	- <phase_4+46> to <phase_4+56> we are setting up parameters for <func4>, this includes setting up values for edx, esi, edi.
+	- after <func4>, we'll compare the return value from <func4> to 0xd which is 13, if not equal the bomb explodes.
+	- then at <phase_4+70> we check if the second number in user input is equal to 13, if not, the bomb explodes
+	- if the above checks are passed, the bomb is defused.
+	- so we want <func4> to return 13 and our second number should also be 13, it turns out if our 	first number is 2, <func4> will give us 13,
+	- so our final answer should be 2 and 13.
++func4
+	- the code from <func4> to <func4+14> find the average of esi(which we can call the low value, now is 0) and edx(which we'll call highvalue, now 14) by performing binary algebra and puts the average 	value in ebx.
+	- then the program compares the average value(ebx) and our first user input number(edi): 
+		- if average value is greater, the program repeats <func4> with esi(lowvalue) still being 0 but edx(highvalue) being updated to the average value
+		- if the average is lower, the progarm repeats <func4> with esi (lowvalue) updated to the average value and edx (highvalue) still remain as 14
+	- then the proagram add the average value it got from this recursion to the sum of all the average value from previous recursions.
+	- so, <func4> is doing binary search for the first numebr in user input and adding up the average value it got during the process.
+	- with this in mind, we can calculate what number, if searched by binary serach, will give us 13, and we got 2.
+
+PHASE5:
+	- String "%d %d" stored in address 0x401654, which means that we need to enter 2 numbers.
+	- <phase_5+34> to <phase_5+45> checks if the first number in user input is 15, if it is, the bomb explodes
+	- <phase_5+50> to <phase_5+77> is a loop that goes through a list where:
+		- 5, 12, 3, 7, 11, 13, 9, 4, 8, 0, 10, 1, 2, 14, 6, 15 are stored in
+		- 0x401500, 0x401504, 0x401508, 0x40150c, 0x401510.... 0x401538, 0x40153c.
+		- the program takes rax (currently storing the first number in user input), mutiply it by 4 and add it to address 0x401500 to get the next address to look at (<phase_5+65>    mov    0x401500(,%rax,4),%eax).
+		- the number contained in the address then is stored in eax and put in rax, then the step before repeats until eax is 15, meaning we've reach the end of the list.
+		- in <phase_5+87> the program checks if edx = 15 (edx is the count of the number of times the program goes through the loop), if not, the bomb explodes, this condition forces us to start at the very begining of the list
+		- in <phase_5+92> the program checks if ecx = the second number in user input (ecx add all the numbers we've gone through in the list together)
+	- so, we want to start at 5, which is our first number, and the second number is the the sum of all integers from 0-15 expect for 5, which is 115.
+
+PHASE6:
+	
+
+ 
+
+
+
+
+
+
+

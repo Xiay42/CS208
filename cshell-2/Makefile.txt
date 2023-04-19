@@ -1,0 +1,42 @@
+CC=gcc
+CFLAGS=-Wall -Werror -O1 -g
+
+forktest: forktest.c
+	$(CC) $(CFLAGS) -o $@ $<
+
+exectest: exectest.c getanumber
+	$(CC) $(CFLAGS) -o $@ $<
+
+exectest_with_args: exectest_with_args.c
+	$(CC) $(CFLAGS) -o $@ $<
+
+getanumber: getanumber.c
+	$(CC) $(CFLAGS) -o $@ $<
+
+signaltest: signaltest.c
+	$(CC) $(CFLAGS) -o $@ $<
+
+shell208: shell208.c
+	$(CC) $(CFLAGS) -o $@ $<
+
+argv: argv.c
+	$(CC) $(CFLAGS) -o $@ $<
+
+pipe: pipe.c
+	$(CC) $(CFLAGS) -o $@ $<
+
+files: files.c
+	$(CC) $(CFLAGS) -o $@ $<
+
+redirect: redirect.c
+	$(CC) $(CFLAGS) -o $@ $<
+
+race: race.c
+	$(CC) $(CFLAGS) -o $@ $<
+
+race_with_lock: race_with_lock.c
+	$(CC) $(CFLAGS) -o $@ $<
+
+norace: norace.c
+	$(CC) $(CFLAGS) -o $@ $<
+

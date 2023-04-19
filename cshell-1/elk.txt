@@ -1,0 +1,21 @@
+total 132
+drwxrwxrwx 1 root root  4096 Feb 17 20:46 .
+drwxrwxrwx 1 root root  4096 Feb 16 18:21 ..
+-rwxrwxrwx 1 root root   677 Feb 16 18:13 Makefile.txt
+-rwxrwxrwx 1 root root     0 Feb 17 20:11 New Text Document.TXT
+-rwxrwxrwx 1 root root 17088 Feb 16 18:22 argv
+-rwxrwxrwx 1 root root  1680 Feb 16 18:14 argv.c
+-rwxrwxrwx 1 root root     0 Feb 17 20:47 elk.txt
+-rwxrwxrwx 1 root root   985 Feb 16 18:14 exectest.c
+-rwxrwxrwx 1 root root 17152 Feb 17 19:40 exectest_with_args
+-rwxrwxrwx 1 root root  1192 Feb 17 19:52 exectest_with_args.c
+-rwxrwxrwx 1 root root  2840 Feb 16 18:14 files.c
+-rwxrwxrwx 1 root root   824 Feb 16 18:13 forktest.c
+-rwxrwxrwx 1 root root   521 Feb 16 18:14 getanumber.c
+-rwxrwxrwx 1 root root   496 Feb 17 20:46 help.TXT
+-rwxrwxrwx 1 root root  1037 Feb 16 18:14 pipe.c
+-rwxrwxrwx 1 root root 17000 Feb 17 08:23 redirect
+-rwxrwxrwx 1 root root  1154 Feb 16 18:14 redirect.c
+-rwxrwxrwx 1 root root 17960 Feb 17 20:46 shell208
+-rwxrwxrwx 1 root root  8189 Feb 17 20:46 shell208.c
+-rwxrwxrwx 1 root root   974 Feb 16 18:14 signaltest.c
